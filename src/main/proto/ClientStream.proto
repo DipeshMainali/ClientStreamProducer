@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "service";
+
+service ClientStreamService {
+  rpc startStream (stream Request) returns (Response) {};
+}
+
+message Request {
+  int32 number = 1;
+  Rule rule = 2;
+}
+
+message Response {
+  double total = 1;
+  string error = 2;
+}
+
+enum Rule {
+  MULTIPLY = 0;
+  DIVIDE = 1;
+  ADD = 2;
+  SUBTRACT = 3;
+  EQUAL = 4;
+}
